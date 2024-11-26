@@ -21,14 +21,25 @@ def weight_converter():
             print("Invalid choice. Please select a valid option.")
             continue
 
+        #Get weight from the user and check
+        try:
+            weight = float(input("Please provide weight: "))
+        except ValueError:
+            print("Invalid input. Please enter numeric values.")
+            continue
+
         # Function that convert
         if unit_convert_from == "1":
             if unit_convert_to == "1":
-                weight = float(input("Please provide weight: "))
                 print(f"{weight} Kilograms")
-        elif unit_convert_from == 2:
-            if unit_convert_to == 2:
-                weight = float(input("Please provide weight: "))
+            elif unit_convert_to == "2":
+                weight = weight * 2.2046
+                print(f"{weight} Pounds")
+        elif unit_convert_from == "2":
+            if unit_convert_to == "1":
+                weight = weight / 2.2046
+                print(f"{weight} Kilograms")
+            elif unit_convert_to == "2":
                 print(f"{weight} Pounds")
 
         # Create function that ask if you wanna still use converter
